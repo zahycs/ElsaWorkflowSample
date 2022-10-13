@@ -1,0 +1,48 @@
+{
+    "definitionId": "SampleWorkflow",
+    "versionId": "1",
+    "version": 1,
+    "variables": {
+      "data": {}
+    },
+    "customAttributes": {
+      "data": {}
+    },
+    "isSingleton": false,
+    "persistenceBehavior": "Suspended",
+    "deleteCompletedInstances": false,
+    "isPublished": true,
+    "isLatest": true,
+    "createdAt": "1970-01-01T00:00:00Z",
+    "activities": {
+      "$values": [
+        { 
+          "activityId": "activity-1",
+          "type": "WriteActivity",
+          "persistWorkflow": false, 
+          "state": {
+            "input1": {
+              "expression": "input from json",
+              "syntax": "Literal"
+            }  
+          }
+        },
+        { 
+            "activityId": "activity-2",
+            "type": "ReadActivity",
+            "persistWorkflow": false,
+            "loadWorkflowContext": false,
+            "saveWorkflowContext": false,
+            "propertyStorageProviders": {
+            }
+          }
+      ]
+    },
+    "connections": [
+      {
+        "sourceActivityId": "activity-1",
+        "targetActivityId": "activity-2"
+      }
+    ],
+    "id": "1"
+  }
