@@ -43,7 +43,7 @@ namespace ElsaWorkflowSample
               // Serialize workflow definition to JSON.
             var serializer = services.GetRequiredService<IContentSerializer>();
  
-            var json = File.ReadAllText("wf-definition.json");
+            var json = await File.ReadAllTextAsync("wf-definition.json");
             // Deserialize workflow definition from JSON.
             var deserializedWorkflowDefinition = serializer.Deserialize<WorkflowDefinition>(json);
 
