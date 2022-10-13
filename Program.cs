@@ -42,39 +42,7 @@ namespace ElsaWorkflowSample
             await startupRunner.StartupAsync();
               // Serialize workflow definition to JSON.
             var serializer = services.GetRequiredService<IContentSerializer>();
-/*             // Define a workflow.
-            var workflowDefinition = new WorkflowDefinition
-            {
-                Id = "1",
-                DefinitionId = "SampleWorkflow",
-                Version = 1,
-                IsPublished = true,
-                IsLatest = true,
-                PersistenceBehavior = WorkflowPersistenceBehavior.Suspended,
-                Activities = new[]
-                {
-                    new ActivityDefinition
-                    {
-                        ActivityId = "activity-1",
-                        Type = nameof(WriteLine),
-                        Properties = new List<ActivityDefinitionProperty>()
-                        {
-                            ActivityDefinitionProperty.Liquid(nameof(WriteLine.Text), "Hello World")
-                        }
-                    },
-                },
-                Connections = new List<ConnectionDefinition>(){
-                    new ConnectionDefinition{
-                        SourceActivityId="1",
-                        TargetActivityId="2"
-                    }
-                }
-            };
-
-          
-            var json = serializer.Serialize(workflowDefinition); ≈
-
-            Console.WriteLine(json);*/
+ 
             var json = File.ReadAllText("wf-definition.json");
             // Deserialize workflow definition from JSON.
             var deserializedWorkflowDefinition = serializer.Deserialize<WorkflowDefinition>(json);
